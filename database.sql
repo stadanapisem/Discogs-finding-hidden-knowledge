@@ -99,3 +99,7 @@
 		REFERENCES artist(id),
 		primary key(track_id, artist_id)
 	);
+
+CREATE VIEW `a_track_a` AS SELECT a.id as `id`, COUNT(m.track_id) as `cnt` FROM artist a, track_arrangement m WHERE a.id = m.artist_id GROUP BY a.id ORDER BY COUNT(m.track_id) DESC
+CREATE VIEW `a_track_l` AS SELECT a.id as `id`, COUNT(m.track_id) as `cnt` FROM artist a, track_lyrics m WHERE a.id = m.artist_id GROUP BY a.id ORDER BY COUNT(m.track_id) DESC
+CREATE VIEW `a_track_m` AS SELECT a.id as `id`, COUNT(m.track_id) as `cnt` FROM artist a, track_music m WHERE a.id = m.artist_id GROUP BY a.id ORDER BY COUNT(m.track_id) DESC
